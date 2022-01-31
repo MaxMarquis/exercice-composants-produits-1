@@ -1,0 +1,25 @@
+<app-formulaire-produits></app-formulaire-produits>
+
+<table mat-table #tableHeros [dataSource]="produits">
+
+    <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.nom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prix">
+        <th mat-header-cell *matHeaderCellDef> Prix </th>
+        <td mat-cell *matCellDef="let produit"> {{produit.prix}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let produit" class="boutonsAction">
+            <button (click)="onDelete(produit)" mat-button><i class="material-icons">delete</i></button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+</table>
