@@ -31,5 +31,9 @@ export class FormulaireProduitsComponent implements OnInit {
       
   }
 
+  onCancel() { 
+    this.majTableau.emit();
+  }
+
 
 }

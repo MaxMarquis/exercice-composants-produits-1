@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { EnteteComponent } from './entete/entete.component';
@@ -49,7 +50,8 @@ import { DialogFormulaireProduitsComponent } from './dialog-formulaire-produits/
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [ProduitService],
   bootstrap: [AppComponent]

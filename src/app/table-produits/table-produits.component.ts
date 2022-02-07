@@ -31,15 +31,20 @@ export class TableProduitsComponent implements OnInit {
       .subscribe(result => this.produits = this.produits.filter(p => p !== produit));
   }
 
-  onSelect(produit: Produit) {
-    this.selectedProduit = produit;
+  onSelect(produit?: Produit) {
+    if (!produit) {
+      this.selectedProduit = { id: '', nom: '', description: '', prix: 0 }
+    } else { 
+      this.selectedProduit = produit;
+    }
     const dialogRef = this.dialog.open(DialogFormulaireProduitsComponent, {
       width: '500px',
       data: this.selectedProduit,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.selectedProduit = result;
+    dialogRef.afterClosed().subscribe(_ => {
+      this.selectedProduit = undefined;
+      this.getProduits();
     });
   }
 }
