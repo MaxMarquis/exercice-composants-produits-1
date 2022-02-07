@@ -23,6 +23,7 @@ import { LienDetailsComponent } from './lien-details/lien-details.component';
 import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { TableProduitsComponent } from './table-produits/table-produits.component';
 import { FormulaireProduitsComponent } from './formulaire-produits/formulaire-produits.component';
+import { DialogFormulaireProduitsComponent } from './dialog-formulaire-produits/dialog-formulaire-produits.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormulaireProduitsComponent } from './formulaire-produits/formulaire-pr
     LienDetailsComponent,
     FicheProduitComponent,
     TableProduitsComponent,
-    FormulaireProduitsComponent
+    FormulaireProduitsComponent,
+    DialogFormulaireProduitsComponent
   ],
   imports: [
     BrowserModule,

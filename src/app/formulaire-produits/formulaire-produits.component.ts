@@ -21,13 +21,14 @@ export class FormulaireProduitsComponent implements OnInit {
     if (produitForm.valid) {
       if (this.produit.id != null && this.produit.id != '') {
         // Si on a un id, on doit modifier le produit
-        this.produitService.editProduit(this.produit).subscribe(_ => { /* todo : mettre à jour le tableau */ });
+        this.produitService.editProduit(this.produit).subscribe(_ => { this.majTableau.emit() });
 
       } else { 
         // Sinon, on doit ajouter le produit
         this.produitService.addProduit(this.produit).subscribe(_ => { this.majTableau.emit() });
       }
-    }      
+    }
+      
   }
 
 

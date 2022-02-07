@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from '../produit';
 import { ProduitService } from '../produit.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FormulaireProduitsComponent } from '../formulaire-produits/formulaire-produits.component';
+import { DialogFormulaireProduitsComponent } from '../dialog-formulaire-produits/dialog-formulaire-produits.component';
 
 @Component({
   selector: 'app-table-produits',
@@ -12,7 +15,7 @@ export class TableProduitsComponent implements OnInit {
   selectedProduit?: Produit;
   columnsToDisplay = ['nom', 'prix', 'actions'];
 
-  constructor(private produitService: ProduitService) { }
+  constructor(private produitService: ProduitService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getProduits();
@@ -30,5 +33,13 @@ export class TableProduitsComponent implements OnInit {
 
   onSelect(produit: Produit) {
     this.selectedProduit = produit;
+    const dialogRef = this.dialog.open(DialogFormulaireProduitsComponent, {
+      width: '500px',
+      data: this.selectedProduit,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedProduit = result;
+    });
   }
 }
