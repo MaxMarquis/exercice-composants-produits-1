@@ -20,5 +20,5 @@
         <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.hasError('required')">La description est obligatoire.</mat-error>
     </mat-form-field>
 
-    <button matSuffix type="submit" mat-icon-button color="primary" [disabled]="!produitForm.form.valid" (click)="onSave(produitForm)"><i class="material-icons">add</i></button>
+    <button matSuffix type="submit" mat-icon-button color="primary" [disabled]="!produitForm.form.valid" (click)="onSave(produitForm)"><i class="material-icons">save</i></button>
 </form>

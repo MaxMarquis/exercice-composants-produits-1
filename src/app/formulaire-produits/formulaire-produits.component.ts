@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Produit } from '../produit';
 import { ProduitService } from '../produit.service';
@@ -9,7 +9,8 @@ import { ProduitService } from '../produit.service';
   styleUrls: ['./formulaire-produits.component.css']
 })
 export class FormulaireProduitsComponent implements OnInit {
-  @Input() produit: Produit = {id:'', nom:'', description:'', prix:0}
+  @Input() produit: Produit = { id: '', nom: '', description: '', prix: 0 }
+  @Output() majTableau = new EventEmitter();
 
   constructor(private produitService: ProduitService) { }
 
@@ -24,7 +25,7 @@ export class FormulaireProduitsComponent implements OnInit {
 
       } else { 
         // Sinon, on doit ajouter le produit
-        this.produitService.addProduit(this.produit).subscribe(_ => { /* todo : mettre à jour le tableau */});
+        this.produitService.addProduit(this.produit).subscribe(_ => { this.majTableau.emit() });
       }
       }
       

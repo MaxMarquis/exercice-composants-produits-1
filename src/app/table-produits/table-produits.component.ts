@@ -9,6 +9,7 @@ import { ProduitService } from '../produit.service';
 })
 export class TableProduitsComponent implements OnInit {
   produits: Produit[] = [];
+  selectedProduit?: Produit;
   columnsToDisplay = ['nom', 'prix', 'actions'];
 
   constructor(private produitService: ProduitService) { }
@@ -27,5 +28,7 @@ export class TableProduitsComponent implements OnInit {
       .subscribe(result => this.produits = this.produits.filter(p => p !== produit));
   }
 
-
+  onSelect(produit: Produit) {
+    this.selectedProduit = produit;
+  }
 }
