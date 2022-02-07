@@ -27,8 +27,7 @@ export class FormulaireProduitsComponent implements OnInit {
         // Sinon, on doit ajouter le produit
         this.produitService.addProduit(this.produit).subscribe(_ => { this.majTableau.emit() });
       }
-      }
-      
+    }      
   }
 
 

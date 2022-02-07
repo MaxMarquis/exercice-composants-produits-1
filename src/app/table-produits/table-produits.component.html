@@ -16,6 +16,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let produit" class="boutonsAction">
+            <button (click)="onSelect(produit)" mat-button><i class="material-icons">edit</i></button>
             <button (click)="onDelete(produit)" mat-button><i class="material-icons">delete</i></button>
         </td>
     </ng-container>
@@ -24,3 +25,7 @@
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 
 </table>
+
+<ng-template [ngIf]="selectedProduit">
+    <app-formulaire-produits [produit]="selectedProduit"></app-formulaire-produits>
+</ng-template>
