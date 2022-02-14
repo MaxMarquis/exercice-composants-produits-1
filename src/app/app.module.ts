@@ -25,6 +25,10 @@ import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { TableProduitsComponent } from './table-produits/table-produits.component';
 import { FormulaireProduitsComponent } from './formulaire-produits/formulaire-produits.component';
 import { DialogFormulaireProduitsComponent } from './dialog-formulaire-produits/dialog-formulaire-produits.component';
+import { NgChartsModule } from 'ng2-charts';
+import { Graphique1Component } from './graphique1/graphique1.component';
+import { GraphiquesComponent } from './graphiques/graphiques.component';
+import { Graphique2Component } from './graphique2/graphique2.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { DialogFormulaireProduitsComponent } from './dialog-formulaire-produits/
     FicheProduitComponent,
     TableProduitsComponent,
     FormulaireProduitsComponent,
-    DialogFormulaireProduitsComponent
+    DialogFormulaireProduitsComponent,
+    Graphique1Component,
+    GraphiquesComponent,
+    Graphique2Component
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ import { DialogFormulaireProduitsComponent } from './dialog-formulaire-produits/
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    NgChartsModule
   ],
   providers: [ProduitService],
   bootstrap: [AppComponent]
