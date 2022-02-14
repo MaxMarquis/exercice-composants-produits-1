@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType } from 'chart.js';
+import { ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-graphique1',
@@ -14,9 +14,9 @@ export class Graphique1Component implements OnInit {
     options: { responsive: true, maintainAspectRatio: false }
   };
 
-  public mesDonnees = {
-    etiquettes: ['2008', '2009', '2010', '2011', '2012'],
-    data: [
+  public mesDonnees: ChartData<'bar', number[], string | string[]> = {
+    labels: ['2008', '2009', '2010', '2011', '2012'],
+    datasets: [
       { data: [800, 581, 568, 485, 852], label: 'Produit ABC' },
       { data: [400, 190, 230, 140, 200], label: 'Produit XYZ' }
     ]
